@@ -1,0 +1,35 @@
+<div class="flex justify-center px-4 pt-5  lg:p-0">
+  <div
+    class="flex flex-col item item gap-10 w-full lg:w-4/5 min-h-[500px] px-4 lg:px-[269px] pt-16 pb-20  bg-white rounded-[33px]">
+    <div class="flex flex-col h-full justify-between items-center ">
+      <div class="w-full flex flex-col">
+        <div class="flex justify-center mb-[43px]">
+          <div class="bg-secondary-1 p-1 rounded-full">
+            <div class="bg-white p-1 rounded-full">
+              <tds-avatar class="bg-base-orange-500 dark:bg-d-base-orange-500   text-white" [size]='124'
+                tdsSrc="https://randomuser.me/api/portraits/women/68.jpg">
+              </tds-avatar>
+            </div>
+          </div>
+        </div>
+        <form class="relative z-60">
+          <div class="text-center  text-tertiary-3 font-medium">Tên hiển thị</div>
+          <tds-form-field [tdsClass]="'border-none  '" class="w-full mt-4 mb-8">
+            <div class="flex items-start h-[60px] bg-tertiary-4">
+              <input tdsInput autocomplete="off" [required]='true' class="appearance-none" />
+            </div>
+          </tds-form-field>
+          <div class="text-center   text-tertiary-3 font-medium w-full">Game pin</div>
+          <tds-form-field [tdsClass]="'border-none'" class="w-full mt-4 ">
+            <div class="flex items-start h-[60px] bg-tertiary-4">
+              <input tdsInput autocomplete="off" [required]='true' class="appearance-none" />
+            </div>
+          </tds-form-field>
+        </form>
+        <button [routerLink]="['/player/game']"  (click)="join()"  tds-button-custom class="tds-button-primary mt-[43px]">
+          <span class="flex h-full justify-center items-center text-header-1">Vào game</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

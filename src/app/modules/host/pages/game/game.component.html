@@ -1,0 +1,18 @@
+<ng-container *ngIf="question.length > 0; else elseTemplate">
+  <div class="flex justify-center">
+    <div class="flex flex-col item item gap-10 w-4/5 min-h-[600px] pl-[61px] pr-[63px] pt-[85px] pb-20 bg-white rounded-[33px]">
+      <tmt-ghub-question></tmt-ghub-question>
+    </div>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="flex justify-center font-Montserrat">
+    <div class="flex flex-col items-center gap-20">
+      <div class="rounded-xl bg-primary-1 text-white px-[387px] py-[39px] font-extrabold text-display-6 leading-[48px]">
+        Trò chơi thứ nhất</div>
+      <div class="w-96">
+        <tmt-ghub-process-bar></tmt-ghub-process-bar>
+      </div>
+    </div>
+  </div>
+</ng-template>

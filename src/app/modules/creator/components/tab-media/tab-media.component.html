@@ -1,0 +1,76 @@
+<div class="flex flex-col items-start">
+  <div class="text-body-1 font-semibold mb-8">Thêm {{name}}</div>
+  <div class="flex items-start gap-3 w-full mb-7">
+    <tds-form-field class="w-11/12">
+      <input tdsInput placeholder="search.." autocomplete="off" />
+      <span tdsPrefix><i class="text-neutral-1-500 tdsi-search-fill"></i></span>
+    </tds-form-field>
+    <button class="min-w-[110px] font-normal" tds-button color="primary" popoverPlacement="bottomRight" tds-popover
+      [(popoverVisible)]="visible" (popoverVisibleChange)="change($event)" popoverTrigger="click"
+      [popoverFooter]="footerTemplate1" [popoverContent]="contentTemplate1">Thêm {{name}}</button>
+    <ng-template #contentTemplate1>
+      <div class="flex flex-col items-start justify-center font-Montserrat w-[500px]">
+        <span class="text-body-1 font-semibold mb-7">Thêm hình ảnh</span>
+        <div class="w-full mb-4">
+          <tds-upload [(fileList)]="fileList" listType="text" type="drag" [multiple]="true"
+            (uploadChange)="handleChange($event)">
+            <div class="w-full h-full p-4 border border-dashed border-neutral-2-200 rounded-md">
+              <div class="flex flex-col gap-2 items-center px-[17px] py-[26px] w-full">
+                <img src="../assets/images/home/upload-img.svg" alt="">
+                <div class="text-body-2 text-neutral-1-900 font-regular">Kéo hình ảnh vào đây hoặc <span
+                    class="text-info-400 font-semibold">tải tệp lên</span></div>
+              </div>
+            </div>
+          </tds-upload>
+        </div>
+        <tds-divider tdsClass="border-dashed border-neutral-2-200"
+          class="text body-2 font-regular text-neutral-1-600  w-full mb-4 " tdsText="HOẶC"></tds-divider>
+        <tds-form-field class="w-full mb-4">
+          <input size="lg" tdsInput placeholder="Dán đường liên kết hình ảnh" autocomplete="off" />
+        </tds-form-field>
+      </div>
+    </ng-template>
+    <ng-template #footerTemplate1>
+      <div class="flex gap-2 justify-end font-Montserrat">
+        <button tds-button class="min-w-[100px] font-semibold bg-secondary-2" color="secondary" size="xl"
+          (click)="close()">
+          Hủy
+        </button>
+        <button tds-button class="min-w-[100px] font-semibold" size="xl" (click)="apply()">
+          Thêm {{name}}
+        </button>
+      </div>
+    </ng-template>
+  </div>
+  <div [ngClass]="fileList.length > 0 ? 'mb-[23px]' : 'mb-[178px]'" class="flex items-center justify-between w-full">
+    <div class="font-normal text-body-2 text-neutral-1-900">Số {{name}} đã chọn <span class="text-primary-1">1</span>
+    </div>
+    <button class="min-w-[125px]" tds-button color="error">
+      <span class="flex items-center">
+        <i class="tdsi-trash-fill text-lg leading-none mr-2"></i>Xóa {{name}}
+      </span>
+    </button>
+  </div>
+  <ng-container *ngIf="fileList.length > 0; else fileListtmp">
+    <div class="grid grid-cols-3 gap-5 mb-8 w-full">
+      <tmt-ghub-media [image]="file?.url!" *ngFor="let file of fileList;"></tmt-ghub-media>
+    </div>
+  </ng-container>
+  <ng-template #fileListtmp>
+    <tds-empty class="w-full mb-[179px]" notFoundImage="../assets/images/home/Nodata.svg"
+      [notFoundContent]="contentTpl">
+      <ng-template #contentTpl>
+        <span class="text-neutral-1-400 font-normal">Không có dữ liệu
+        </span>
+      </ng-template>
+    </tds-empty>
+  </ng-template>
+  <div class="flex justify-end items-center w-full gap-6">
+    <button (click)="cancel()" tds-button-custom class="tds-button-secondary min-w-[218px]">
+      <span class="flex h-full justify-center items-center text-header-1">Hủy</span>
+    </button>
+    <button tds-button-custom class="tds-button-primary min-w-[218px]">
+      <span class="flex h-full justify-center items-center text-header-1">Thêm</span>
+    </button>
+  </div>
+</div>

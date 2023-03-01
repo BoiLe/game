@@ -1,0 +1,29 @@
+<tmt-ghub-layout-account>
+  <div class="flex flex-col h-full gap-[173px] justify-between items-center ">
+    <div class="w-full flex flex-col">
+      <div class="text-heading-4 pb-11  text-start font-semibold text-black">Đăng nhập</div>
+      <form>
+        <tds-label>Tài khoản</tds-label>
+        <tds-form-field class="w-full mt-2 mb-6">
+          <input tdsInput size="md" autocomplete="off" placeholder="Nhập tên tài khoản" [required]='true' class="appearance-none" />
+          <tds-error>Vui lòng nhập tài khoản</tds-error>
+        </tds-form-field>
+        <tds-label class="pt-4">Mật khẩu</tds-label>
+        <tds-form-field class="w-full mt-2">
+          <input tdsInput size="md" placeholder="Nhập mật khẩu" type="password" autocomplete="new-password" [required]='true' />
+          <tds-error>Vui lòng nhập mật khẩu</tds-error>
+        </tds-form-field>
+      </form>
+      <div class="w-full flex flex-col justify-center gap-12 mt-6">
+        <div class="flex gap-0.5 justify-end">
+          <a [routerLink]="['/creator']"  class="text-body-2 font-regular text-neutral-1-400">Quên mật
+            khẩu</a>
+        </div>
+        <button [routerLink]="['/creator']" class="w-full rounded-xl" size="xl" tds-button color="primary">Đăng
+          nhập
+        </button>
+      </div>
+    </div>
+    <div class="text-tertiary-1 font-semibold  opacity-40">@TMT Game hub</div>
+  </div>
+</tmt-ghub-layout-account>

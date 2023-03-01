@@ -1,0 +1,33 @@
+<div class="h-screen w-screen overflow-hidden">
+  <div class="h-full  flex flex-col font-Montserrat">
+    <div class="flex">
+      <picture>
+        <img class="h-full" src="../assets/images/home/TMT-logo.svg" alt="">
+      </picture>
+      <div class="flex-auto bg-black pl-[43px] pr-[22px] py-[26px]">
+        <div class="flex justify-between items-center">
+          <picture>
+            <img src="../assets/images/home/logo-text-white.svg" alt="">
+          </picture>
+          <tds-avatar tds-dropdown [tdsDropdownMenu]="menu"
+            class="bg-base-orange-500 dark:bg-d-base-orange-500   text-white" size="lg"
+            tdsSrc="https://randomuser.me/api/portraits/women/68.jpg">
+          </tds-avatar>
+          <tds-dropdown-menu #menu="tdsDropdownMenu">
+            <div class="w-full py-0.5">
+              <div tds-dropdown-item>
+                <a> Xem thông tin </a>
+              </div>
+              <div tds-dropdown-item>
+                <a class="text-secondary-1"> Đăng xuất </a>
+              </div>
+            </div>
+          </tds-dropdown-menu>
+        </div>
+      </div>
+    </div>
+    <div class="flex-auto inset-0 bg-primary-5 overflow-hidden">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

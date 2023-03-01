@@ -1,0 +1,39 @@
+<div popoverPlacement="bottomRight" tds-popover  [popoverAutoClose]=true [(popoverVisible)]="visible"
+  popoverTrigger="click" [popoverContent]="contentTemplate1"
+  class="flex justify-between items-center p-3 border border-neutral-2-200 rounded-lg ">
+  <div class="flex items-center gap-3 ">
+    <picture>
+      <img class="h-full" [src]=image alt="">
+    </picture>
+    <div class="flex flex-col gap-y-1">
+      <div class="text-body-2 font-semibold text-black">{{name}}</div>
+      <div class="text-xs font-semibold text-neutral-1-600">
+        <span class="font-regular">Ngày tạo:</span>
+        {{setDay| date: "dd/MM/yyyy"}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="users" class="flex items-center gap-2">
+    <span><i class="tdsi-user-fill text-base text-primary-1"></i></span>
+    <div class="text-body-2 text-primary-1 font-regular">{{users}}</div>
+  </div>
+</div>
+<ng-template #contentTemplate1>
+  <div  *ngIf="lstUser.length > 0" class="flex flex-col pt-3 px-4 pb-4 min-w-[380px] font-Montserrat">
+    <div class="text-body-1 font-semibold text-neutral-1-900 mb-3">Danh sách người tham gia</div>
+    <div *ngFor="let user of lstUser;" class="flex items-start gap-3 py-3 ">
+      <picture>
+        <img [src]=user.img alt="">
+      </picture>
+      <div class="flex items-center gap-3">
+        <tds-avatar class="bg-base-orange-500 dark:bg-d-base-orange-500   text-white" [size]='40'
+          tdsSrc="https://randomuser.me/api/portraits/women/68.jpg">
+        </tds-avatar>
+        <div class="text-title-1 font-semibold text-neutral-1-900">Bội lê</div>
+      </div>
+    </div>
+    <div class="flex justify-end">
+      <button (click)="close()" class="min-w-[100px] bg-secondary-2" tds-button color="secondary">Đóng</button>
+    </div>
+  </div>
+</ng-template>

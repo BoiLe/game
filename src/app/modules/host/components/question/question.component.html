@@ -1,0 +1,14 @@
+<div class="flex flex-col w-full gap-[83px]">
+  <div class="flex items-start justify-between">
+    <div class="text-header-1 font-semibold"><span class="font-bold">Câu 1:</span> Sinh nhật TMT là ngày mấy?</div>
+    <ng-container *ngIf="isAnswser; else elseTemplate">
+      <div [routerLink]="['/host/rank']" class="py-2 px-6 rounded-full bg-secondary-1 text-white text-heading-4 font-semibold cursor-pointer">Tiếp tục</div>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="py-2 px-6 rounded-full bg-secondary-1 text-white text-heading-4 font-semibold">5s</div>
+    </ng-template>
+  </div>
+  <div class="grid grid-cols-2 gap-x-9 gap-y-11">
+    <tmt-ghub-answer  *ngFor="let answser of answsers ; let i=index" [isAnswser]="isAnswser" [color]="answser.color" (activeAnswser)="activeAnswser($event, i)"></tmt-ghub-answer>
+  </div>
+</div>

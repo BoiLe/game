@@ -1,0 +1,24 @@
+<div class="flex flex-col">
+  <form>
+    <tds-label>Thời gian giới hạn</tds-label>
+    <tds-form-field class="w-full mt-2 mb-6">
+      <tds-select valueField="id" textField="time" placeholder='Chọn thời gian'
+        [required]='true' [data]="data" [allowClear]="true">
+      </tds-select>
+    </tds-form-field>
+    <tds-label class="pt-4">Điểm</tds-label>
+    <tds-form-field class="w-full mt-2 mb-8">
+      <tds-select valueField="id" textField="point" placeholder='Chọn số điểm'  [required]='true'
+        [data]="data" [allowClear]="true">
+      </tds-select>
+    </tds-form-field>
+  </form>
+  <div *tdsModalFooter class="flex justify-end gap-3 pr-4 pb-4">
+    <button (click)="close()" tds-button-custom class="tds-button-secondary min-w-[180px]">
+      <span class="flex h-full justify-center items-center text-header-1">Đóng</span>
+    </button>
+    <button (click)="save()" tds-button-custom class="tds-button-primary min-w-[180px]">
+      <span class="flex h-full justify-center items-center text-header-1">Lưu</span>
+    </button>
+  </div>
+</div>

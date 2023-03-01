@@ -1,0 +1,47 @@
+<div class="flex flex-col gap-y-4 overflow-hidden">
+  <div class="flex justify-between items-center py-6 px-8 bg-white">
+    <div class="text-heading-3 font-semibold text-black">Trang chủ</div>
+    <button [routerLink]="['/creator/studio']" tds-button-custom class="tds-button-primary">
+      <span class="flex h-full justify-center items-center text-header-1">Tạo game mới</span>
+    </button>
+  </div>
+  <div class="flex flex-col px-4 pb-2.5 gap-4 overflow-auto tds-custom-scroll">
+    <div class="flex justify-between items-center px-4 pt-4 rounded-lg bg-primary-3">
+      <div class="flex flex-col pb-6">
+        <div class="text-xl font-semibold mb-5">Chào mừng trở lại ! </div>
+        <div class="text-xl font-semibold mb-6">Nguyễn Thông</div>
+        <button tds-button-custom class="tds-button-primary">
+          <span class="flex h-full justify-center items-center text-xl leading-6">Xem thông tin</span>
+        </button>
+      </div>
+      <picture>
+        <img src="../assets/images/home/info.svg" alt="Dashboard">
+      </picture>
+    </div>
+    <div class="flex flex-col items-center gap-[51px] w-full">
+      <div class="flex items-start gap-x-4 w-full">
+        <div class="flex flex-col  gap-y-6 max-h-[667px] overflow-hidden  w-2/3 bg-white rounded-xl">
+          <div class="flex justify-between items-center px-6 pt-6">
+            <div class="text-xl font-semibold">Danh sách đã tạo</div>
+            <tds-form-field class="w-[400px]">
+              <input tdsInput placeholder="Tìm kiếm" autocomplete="off" />
+              <span tdsPrefix><i class="text-neutral-1-500 tdsi-search-fill"></i></span>
+            </tds-form-field>
+          </div>
+          <div class="flex flex-col gap-6 pb-6 px-6  h-[calc(667px + 24px)] overflow-auto tds-custom-scroll">
+            <tmt-ghub-game *ngFor="let game of lstGame;" [name]="game.name" [nameGame]="game.nameGame"
+              [image]="game.image"></tmt-ghub-game>
+          </div>
+        </div>
+        <div class="flex flex-col  gap-y-6 max-h-[667px] overflow-hidden  w-1/3 bg-white rounded-xl">
+          <div class="text-xl font-semibold px-6 pt-6">Báo cáo mới nhất</div>
+          <div class="flex flex-col gap-4 pb-6 px-6  h-[calc(667px + 24px)] overflow-auto tds-custom-scroll">
+            <tmt-ghub-report-lastest *ngFor="let report of lstReport;" [image]="report.image" [users]="report.users"
+              [name]="report.name" [setDay]="report.setDay" [lstUser]="report.lstUser"></tmt-ghub-report-lastest>
+          </div>
+        </div>
+      </div>
+      <div class="w-full text-center text-2xl text-tertiary-1  font-semibold opacity-40">@TMT Game hub</div>
+    </div>
+  </div>
+</div>

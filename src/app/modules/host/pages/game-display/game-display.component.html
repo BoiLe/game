@@ -1,0 +1,29 @@
+<div class="flex justify-center">
+  <div class="flex flex-col item item gap-10 w-4/5 min-h-[600px] px-[61px] py-10 bg-white rounded-[31px]">
+    <div class="flex justify-center">
+      <div class="px-[229px] py-[19px] rounded-xl bg-primary-1 text-white text-[40px] font-extrabold">0567</div>
+    </div>
+    <div class="flex justify-between items-center mb-2.5">
+      <div class="flex items-center gap-2">
+        <span class="text-heading-2 text-primary-1"><i class="tdsi-user-fill"></i></span>
+        <div class="text-heading-2 text-primary-1 font-regular">{{ lstUser.length }}</div>
+      </div>
+      <button [routerLink]="['/host/game-start']" [ngClass]="lstUser.length > 0 ? 'text-primary-1 border border-primary-1' : 'tds-button-secondary text-neutral-1-300'" tds-button-custom class="min-w-[202px]">
+        <span class="flex h-full justify-center items-center text-header-1 ">Bắt đầu chơi</span>
+      </button>
+    </div>
+    <ng-container *ngIf="lstUser.length > 0; else playertmp">
+      <div class="flex-wrap flex justify-center gap-3">
+        <div *ngFor="let user of lstUser" class="flex gap-2 items-center bg-primary-3 p-3.5 rounded-xl">
+          <tds-avatar class="bg-base-orange-500 dark:bg-d-base-orange-500   text-white" [size]=32
+          tdsSrc="https://randomuser.me/api/portraits/women/68.jpg">
+        </tds-avatar>
+          <div class="text-header-1 font-semibold text-black">{{user.name}}</div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #playertmp>
+      <div class="flex justify-center text-heading-2">Chờ đợi người chơi ...</div>
+    </ng-template>
+  </div>
+</div>

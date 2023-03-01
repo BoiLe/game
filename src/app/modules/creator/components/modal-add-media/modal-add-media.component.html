@@ -1,0 +1,41 @@
+<tds-tabset class="bg-white dark:bg-d-neutral-3-200 flex gap-4 px-4" tabPosition="left" [clsTab]="'flex'"
+  [tabBarStyle]="{'align-items': 'flex-start', 'padding-top': '16px'}">
+  <tds-divider tdsType="vertical"></tds-divider>
+  <tds-tab [title]="image" clsContent="w-full h-full pl-4 py-4 pr-1 -mt-px border-l border-dashed">
+    <ng-template #image let-active="active">
+      <div
+        class="min-w-[200px] flex items-center font-semibold rounded-lg cursor-pointer text-body-2 px-4 py-3 mb-1 relative group"
+        [ngClass]='{" text-primary-1 bg-primary-3":active,"text-neutral-1-600 dark:text-d-neutral-1-400 hover:text-primary-1 hover:bg-primary-3":!active}'>
+        Hình ảnh
+      </div>
+    </ng-template>
+    <tmt-ghub-tab-media [name]="'hình ảnh'"></tmt-ghub-tab-media>
+  </tds-tab>
+  <tds-tab [title]="gif" clsContent="w-full h-full pl-4 py-4 pr-1 -mt-px border-l border-dashed">
+    <ng-template #gif let-active="active">
+      <div class="flex items-center font-semibold rounded-lg cursor-pointer text-body-2 px-4 py-3 mb-1 relative group"
+        [ngClass]='{" text-primary-1 bg-primary-3":active,"text-neutral-1-600 dark:text-d-neutral-1-400 hover:text-primary-1 hover:bg-primary-3":!active}'>
+        Gif
+      </div>
+    </ng-template>
+    <tmt-ghub-tab-media [name]="'gif'"></tmt-ghub-tab-media>
+  </tds-tab>
+  <tds-tab [title]="video" clsContent="w-full h-full pl-4 py-4 pr-1 -mt-px border-l border-dashed">
+    <ng-template #video let-active="active">
+      <div class="flex items-center font-semibold rounded-lg cursor-pointer text-body-2 px-4 py-3 mb-1 relative group"
+        [ngClass]='{" text-primary-1 bg-primary-3":active,"text-neutral-1-600 dark:text-d-neutral-1-400 hover:text-primary-1 hover:bg-primary-3":!active}'>
+        Video
+      </div>
+    </ng-template>
+    <tmt-ghub-tab-media [name]="'video'"></tmt-ghub-tab-media>
+  </tds-tab>
+  <tds-tab [title]="audio" clsContent="w-full h-full pl-4 py-4 pr-1 -mt-px border-l border-dashed">
+    <ng-template #audio let-active="active">
+      <div class="flex items-center font-semibold rounded-lg cursor-pointer text-body-2 px-4 py-3 mb-1 relative group"
+        [ngClass]='{" text-primary-1 bg-primary-3":active,"text-neutral-1-600 dark:text-d-neutral-1-400 hover:text-primary-1 hover:bg-primary-3":!active}'>
+        Audio
+      </div>
+    </ng-template>
+    <tmt-ghub-tab-media [name]="'audio'"></tmt-ghub-tab-media>
+  </tds-tab>
+</tds-tabset>

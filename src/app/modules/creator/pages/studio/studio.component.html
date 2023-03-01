@@ -1,0 +1,35 @@
+<div class="flex flex-col overflow-hidden">
+  <div class="flex justify-between items-center py-6 px-8 bg-white">
+    <div class="flex flex-col items-start gap-y-3">
+      <tds-breadcrumb>
+        <tds-breadcrumb-item class="!text-body-1 !font-medium text-tertiary-2">Trang chủ</tds-breadcrumb-item>
+        <tds-breadcrumb-item class="!text-body-1 !font-medium text-tertiary-2">Tạo game mới</tds-breadcrumb-item>
+      </tds-breadcrumb>
+      <div class="text-heading-3 font-semibold text-black">Tạo game mới</div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button (click)="createGame()" tds-button-custom class="tds-button-primary min-w-[164px]">
+        <span class="flex h-full justify-center items-center text-header-1">Lưu</span>
+      </button>
+      <button tds-button-custom class="tds-button-secondary min-w-[164px]">
+        <span class="flex h-full justify-center items-center text-header-1">Hủy</span>
+      </button>
+    </div>
+  </div>
+  <div class="flex flex-col pl-[134px] pr-[166px] pb-2.5 pt-4 gap-3.5 overflow-auto tds-custom-scroll">
+    <div class="flex flex-col">
+      <div class="flex flex-col items-start mb-4 gap-4 p-4 bg-white rounded-xl">
+        <div class="text-[22px] font-medium text-tertiary-3">Tiêu đề game</div>
+        <input tdsInput class="w-full h-[60px] !bg-tertiary-4 rounded-xl" type="text">
+      </div>
+      <tmt-ghub-question *ngFor="let question of lstQuestion;" [numberQuestion]="question+1" (event)="addMedia()" (settingEvent)="handleSetting()"></tmt-ghub-question>
+      <span>
+        <button (click)="addQuestion()" tds-button-custom class="tds-button-primary min-w-[164px] ">
+          <span class="flex h-full justify-center font-semibold items-center text-header-1 gap-2.5 "> <i
+              class="tdsi-plus-circle-fill"></i> Thêm câu hỏi</span>
+        </button>
+      </span>
+    </div>
+    <div class="w-full text-center text-2xl text-tertiary-1  font-semibold opacity-40">@TMT Game hub</div>
+  </div>
+</div>
